@@ -4,7 +4,7 @@ import keyboard
 import threading
 import time
 
-sound = AudioSegment.from_mp3("poppo.mp3")
+sound = AudioSegment.from_mp3("Pyano\qp.mp3")
 shift_offset = 3
 
 
@@ -24,27 +24,47 @@ def PlaySong(pitch_shift):
 def on_press_reaction(event):
     match event.name:
         case "a":
-            PlaySong(0-shift_offset*4)
+            PlaySong(0-shift_offset*10)
+        case "q":
+            PlaySong(0-shift_offset*9)
         case "z":
-            PlaySong(0-shift_offset*3)
+            PlaySong(0-shift_offset*8)
+        case "s":
+            PlaySong(0-shift_offset*7)
         case "e":
-            PlaySong(0-shift_offset*2)
+            PlaySong(0-shift_offset*6)
+        case "d":
+            PlaySong(0-shift_offset*5)
         case "r":
-            PlaySong(0-shift_offset)
+            PlaySong(0-shift_offset*4)
+        case "f":
+            PlaySong(0-shift_offset*3)
         case "t":
-            PlaySong(0)
+            PlaySong(0-shift_offset*2)
+        case "g":
+            PlaySong(0-shift_offset)
         case "y":
+            PlaySong(0)
+        case "h":
             PlaySong(0+shift_offset)
         case "u":
             PlaySong(0+shift_offset*2)
-        case "i":
+        case "j":
             PlaySong(0+shift_offset*3)
-        case "o":
+        case "i":
             PlaySong(0+shift_offset*4)
+        case "k":
+            PlaySong(0+shift_offset*5)
+        case "o":
+            PlaySong(0+shift_offset*6)
+        case "l":
+            PlaySong(0+shift_offset*7)
         case "p":
-            PlaySong(-30)
+            PlaySong(0+shift_offset*8)
         case "m":
-            PlaySong(20)
+            PlaySong(0+shift_offset*9)
+        case "^":
+            PlaySong(0+shift_offset*10)
 
 
 keyboard.on_press(on_press_reaction)
