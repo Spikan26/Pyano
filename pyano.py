@@ -1,11 +1,32 @@
 from pydub import AudioSegment
 import pydub.playback as playback
 import keyboard
-import threading
-import time
 
-sound = AudioSegment.from_mp3("Pyano\qp.mp3")
-shift_offset = 3
+sound = AudioSegment.from_mp3("Pyano\poppo.mp3")
+
+keybinding = {
+    "a": -10,
+    "q": -9,
+    "z": -8,
+    "s": -7,
+    "e": -6,
+    "d": -5,
+    "r": -4,
+    "f": -3,
+    "t": -2,
+    "g": -1,
+    "y": 0,
+    "h": 1,
+    "u": 2,
+    "j": 3,
+    "i": 4,
+    "k": 5,
+    "o": 6,
+    "l": 7,
+    "p": 8,
+    "m": 9,
+    "^": 10
+}
 
 
 def PlaySong(pitch_shift):
@@ -21,53 +42,14 @@ def PlaySong(pitch_shift):
     playback._play_with_simpleaudio(lowpitch_shift)
 
 
-def on_press_reaction(event):
-    match event.name:
-        case "a":
-            PlaySong(0-shift_offset*10)
-        case "q":
-            PlaySong(0-shift_offset*9)
-        case "z":
-            PlaySong(0-shift_offset*8)
-        case "s":
-            PlaySong(0-shift_offset*7)
-        case "e":
-            PlaySong(0-shift_offset*6)
-        case "d":
-            PlaySong(0-shift_offset*5)
-        case "r":
-            PlaySong(0-shift_offset*4)
-        case "f":
-            PlaySong(0-shift_offset*3)
-        case "t":
-            PlaySong(0-shift_offset*2)
-        case "g":
-            PlaySong(0-shift_offset)
-        case "y":
-            PlaySong(0)
-        case "h":
-            PlaySong(0+shift_offset)
-        case "u":
-            PlaySong(0+shift_offset*2)
-        case "j":
-            PlaySong(0+shift_offset*3)
-        case "i":
-            PlaySong(0+shift_offset*4)
-        case "k":
-            PlaySong(0+shift_offset*5)
-        case "o":
-            PlaySong(0+shift_offset*6)
-        case "l":
-            PlaySong(0+shift_offset*7)
-        case "p":
-            PlaySong(0+shift_offset*8)
-        case "m":
-            PlaySong(0+shift_offset*9)
-        case "^":
-            PlaySong(0+shift_offset*10)
+def on_press_piano(event):
+    try:
+        PlaySong(keybinding[event.name])
+    except:
+        pass
 
 
-keyboard.on_press(on_press_reaction)
+keyboard.on_press(on_press_piano)
 
 while True:
     pass
