@@ -2,7 +2,7 @@ from pydub import AudioSegment
 import pydub.playback as playback
 import keyboard
 
-sound = AudioSegment.from_mp3("Pyano\poppo.mp3")
+sound = AudioSegment.from_mp3("Audio/qp.mp3")
 
 keybinding = {
     "a": -10,
